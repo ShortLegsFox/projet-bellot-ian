@@ -1,0 +1,27 @@
+<div *ngIf="(connectionStatus | async) == false">
+  Vous n'êtes pas connecté !
+</div>
+
+<div class="form-group">
+  <label for="product-search">Nom du produit:</label>
+  <input
+    #searchinput
+    id="product-search"
+    type="text"
+    class="form-control"
+    placeholder="Rechercher un produit"
+    value=""
+  />
+</div>
+
+<div *ngIf="connectionStatus | async">
+  <div class="flex justify-around my-5" *ngIf="model | async as products">
+    <div *ngFor="let p of products">
+      <div><img class="object-cover h-56 w-56" alt="product img" src="{{ p.imglink }}"/></div>
+      <div>{{ p.name }}</div>
+      <div>{{ p.description }}</div>
+      <div>{{ p.price }}</div>
+      <button class="border border-slate-300 px-2" (click)="addToCart(p)">Ajouter au panier</button>
+    </div>
+  </div>
+</div>

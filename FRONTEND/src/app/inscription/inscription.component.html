@@ -1,0 +1,60 @@
+<form [formGroup]="accountCreationForm" class="flex flex-col justify-center items-center mt-10">
+  <div>
+    <label for="username">Nom d'utilisateur : </label>
+    <input class="border border-slate-300" formControlName="username" id="username"/>
+  </div>
+  <div class="mt-3">
+    <label for="lastname">Nom : </label>
+    <input class="border border-slate-300" formControlName="lastname" id="lastname"/>
+  </div>
+  <div class="mt-3">
+    <label for="firstname">Prenom : </label>
+    <input class="border border-slate-300" formControlName="firstname" id="firstname"/>
+  </div>
+  <div class="mt-3">
+    <label for="address">Adresse : </label>
+    <input class="border border-slate-300" formControlName="address" id="address"/>
+  </div>
+  <div class="mt-3">
+    <label for="postal">Code postal : </label>
+    <input class="border border-slate-300" formControlName="postal" id="postal"/>
+  </div>
+  <div class="mt-3">
+    <label for="city">Ville : </label>
+    <input class="border border-slate-300" formControlName="city" id="city"/>
+  </div>
+  <div class="mt-3">
+    <label for="gender">Sexe : </label>
+    <input class="border border-slate-300" formControlName="gender" id="gender"/>
+  </div>
+  <div class="mt-3">
+    <label for="phone">Téléphone : </label>
+    <input class="border border-slate-300" formControlName="phone" id="phone"/>
+  </div>
+  <div class="mt-3">
+    <label for="mail">Adresse mail : </label>
+    <input class="border border-slate-300" formControlName="mail" id="mail"/>
+  </div>
+  <div class="mt-3">
+    <label for="password">Mot de passe : </label>
+    <input class="border border-slate-300" formControlName="password" id="password" type="password"/>
+  </div>
+  <div class="mt-3">
+    <label for="confirmpassword">Confirmer le mot de passe : </label>
+    <input class="border border-slate-300" formControlName="confirmpassword" id="confirmpassword" type="password"/>
+  </div>
+  <div class="mt-3">
+    <button class="border border-slate-300 px-2 disabled:bg-slate-300" type="submit" [disabled]="accountCreationForm.invalid" (click)="Inscription()">Inscription</button>
+  </div>
+</form>
+
+<div class="flex justify-center mt-2 text-green-600" *ngIf="validation">
+  <p>Inscription réussie !</p>
+</div>
+
+<div class="flex justify-center my-10">
+  <p>
+    Vous avez déjà un compte ?
+    <a class="hover:text-blue-600" routerLink="/connection">Connectez vous ici</a>
+  </p>
+</div>

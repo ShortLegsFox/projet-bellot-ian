@@ -1,0 +1,24 @@
+<form [formGroup]="connectionForm" class="flex flex-col justify-center items-center mt-10">
+  <div>
+    <label for="username">Nom d'utilisateur : </label>
+    <input class="border border-slate-300" formControlName="username" id="username"/>
+  </div>
+  <div class="mt-3">
+    <label for="password">Mot de passe : </label>
+    <input class="border border-slate-300" formControlName="password" id="password" type="password"/>
+  </div>
+  <div class="mt-3">
+    <button class="border border-slate-300 px-2 disabled:bg-slate-300" type="submit" [disabled]="connectionForm.invalid" (click)="Connection()">Connexion</button>
+  </div>
+</form>
+
+<div class="flex justify-center mt-2 text-green-600" *ngIf="connectionStatus | async">
+  <p>Connexion réussie !</p>
+</div>
+
+<div class="flex justify-center my-10">
+  <p>
+    Pas encore de compte ?
+    <a class="hover:text-blue-600" routerLink="/account-creation">Inscrivez vous ici !</a>
+  </p>
+</div>
